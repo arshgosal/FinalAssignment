@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    // checking using is statement that there are any articles in the server and if then displaying them at index page
+    //only users can see the link to update page and delete button
+    main
+        
+          if (articles && articles.length)
+            section
+                each article in articles
+                    fieldset
+                        div
+                            if(!user)
+                                p= "Name of product: "+article.name
+                                p= "Description: "+article.description
+                                p= "Price: $"+article.price
+                            else
+                                p= "Name of product: "+article.name
+                                p= "Description: "+article.description
+                                p= "Price: $"+article.price
+                                p
+                                    a(href='/update/'+article.id) Update
+                                p
+                                    form(method='POST' action='/delete/'+article.id)
+                                        button(type='submit') Delete
+          else
+            h3 Currently There are no listings
+            h4 If you want to add Item, Register Now or Login if already a seller
+    include footer

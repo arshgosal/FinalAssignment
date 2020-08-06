@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    //checking if user is logged in or not
+    if(!user)
+        h1 You have to login in order to insert data
+    else
+        h1 Insert Article below
+        //Insert form to insert data
+        form(method='POST' action='/insert')
+            div
+                h2 Insert Title
+                input(type='text' name='name')
+            div
+                h2 Description
+                input(type='text' name='description')
+            div
+                h2 Price
+                input(type='text' name='price')
+            div
+                button(type='submit' value='Submit') Submit

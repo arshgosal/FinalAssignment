@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/main.css')
+  body
+    header
+        //adding navigation bar at the top and letting only users to see the link to insert page
+        nav
+            if (!user)
+                a(href='/login') Login 
+                a(href='/register') Register
+                a(href='/') Items
+                a(href='/search') Search
+            else
+                a(href='/logout') Logout
+                a(href='/insert') Add Items
+                a(href='/') Items
+                a(href='/search') Search
+    block content
